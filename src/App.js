@@ -34,15 +34,15 @@ class BooksApp extends React.Component {
                 book.shelf = shelf;
 
                 let allResultIDArr = [];
-                 for (let value in result) {
-                     allResultIDArr = allResultIDArr.concat(result[value]);
-                 }
+                for (let value in result) {
+                    allResultIDArr = allResultIDArr.concat(result[value]);
+                }
 
-                 this.setState((currState) => ({
-                     allBooks: currState.allBooks.filter(item => {
-                         return allResultIDArr.includes(item.id);
-                     })
-                 }));
+                this.setState((currState) => ({
+                    allBooks: currState.allBooks.filter(item => {
+                        return allResultIDArr.includes(item.id);
+                    })
+                }));
 
 
             });
@@ -52,22 +52,20 @@ class BooksApp extends React.Component {
 
     render() {
 
-        console.log(this.state);
-
         return (
             <div className="app">
 
                 <Route exact path="/" render={() => (
                     <BookList
-                        shelfBookList = {this.state.allBooks}
-                        onSelectItem = {this.handleSelect}
+                        shelfBookList={this.state.allBooks}
+                        onSelectItem={this.handleSelect}
 
                     />
                 )}/>
                 <Route exact path="/search" render={() => (
                     <Search
-                        shelfBookList = {this.state.allBooks}
-                        updateState = {this.updateState}
+                        shelfBookList={this.state.allBooks}
+                        updateState={this.updateState}
                     />
                 )}/>
 
